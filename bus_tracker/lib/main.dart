@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'bus_schedule_model.dart';
+import 'Screens/home.dart';
 
 void main() {
   runApp(BusScheduleApp());
@@ -15,7 +16,7 @@ class BusScheduleApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BusScheduleScreen(),
+      home: NavigationBarApp(),
     );
   }
 }
