@@ -23,7 +23,8 @@ class BusScheduleApp extends StatelessWidget {
 
 class BusScheduleScreen extends StatelessWidget {
   Future<List<BusRoute>> loadBusRoutes() async {
-    final String response = await rootBundle.loadString('assets/bus_schedule.json');
+    final String response =
+        await rootBundle.loadString('assets/bus_schedule.json');
     final List<dynamic> data = json.decode(response)['routes'];
     return data.map((json) => BusRoute.fromJson(json)).toList();
   }

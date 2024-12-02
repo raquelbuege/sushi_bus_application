@@ -11,19 +11,19 @@ class NavigationBarApp extends StatelessWidget {
     return MaterialApp(
       // Used this for the theme https://docs.flutter.dev/cookbook/design/themes
       theme: ThemeData(
-      useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: const Color.fromARGB(255, 62, 80, 198),
-        brightness: Brightness.dark,
-      ),
-      textTheme: TextTheme(
-        displayLarge: const TextStyle(
-          fontSize: 72,
-          color: Colors.white,
-          fontWeight: FontWeight.w700,
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 62, 80, 198),
+          brightness: Brightness.dark,
+        ),
+        textTheme: TextTheme(
+          displayLarge: const TextStyle(
+            fontSize: 72,
+            color: Colors.white,
+            fontWeight: FontWeight.w700,
+          ),
         ),
       ),
-  ),
       home: const NavigationExample(),
     );
   }
@@ -63,23 +63,20 @@ class _NavigationExampleState extends State<NavigationExample> {
             icon: Badge(child: Icon(Icons.search, color: Colors.white)),
             label: 'Search',
           ),
-           NavigationDestination(
+          NavigationDestination(
             icon: Badge(child: Icon(Icons.photo_camera, color: Colors.white)),
             label: 'AR',
           ),
-           NavigationDestination(
+          NavigationDestination(
             icon: Badge(child: Icon(Icons.attach_money, color: Colors.white)),
             label: 'Ticket',
-            
           ),
-           NavigationDestination(
-            icon: Badge(child: Icon(Icons.person, color: Colors.white)),
-            label: 'profile'
-          ),
-
+          NavigationDestination(
+              icon: Badge(child: Icon(Icons.person, color: Colors.white)),
+              label: 'profile'),
         ],
       ),
-      
+
       body: <Widget>[
         /// Home page
         Card(
