@@ -9,6 +9,8 @@ void main() {
 }
 
 class BusScheduleApp extends StatelessWidget {
+  const BusScheduleApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,12 +18,16 @@ class BusScheduleApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: NavigationBarApp(),
+     
+    //  replace this line with your imported screen
+      home: const NavigationBarApp(),
     );
   }
 }
 
 class BusScheduleScreen extends StatelessWidget {
+  const BusScheduleScreen({super.key});
+
   Future<List<BusRoute>> loadBusRoutes() async {
     final String response = await rootBundle.loadString('assets/bus_schedule.json');
     final List<dynamic> data = json.decode(response)['routes'];
@@ -32,17 +38,17 @@ class BusScheduleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bus Schedule'),
+        title: const Text('Bus Schedule'),
       ),
       body: FutureBuilder<List<BusRoute>>(
         future: loadBusRoutes(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text('No data found'));
+            return const Center(child: Text('No data found'));
           }
 
           final routes = snapshot.data!;
